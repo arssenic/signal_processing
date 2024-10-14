@@ -1,2 +1,7 @@
 # signal_processing
-A basic web application for understanding basic operations on signal operations
+Used operations:
+Amplitude Scaling
+Time Scaling
+Time Shifting
+Addition of two signals
+Multiplication of two signals
