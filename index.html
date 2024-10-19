@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Processing Web App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5 p-4 rounded shadow animate__animated animate__fadeIn">
+        <h1 class="text-center mb-4 animate__animated animate__bounceInDown">Signal Processing Operations</h1>
+        
+        <div class="row mb-4 animate__animated animate__fadeInLeft">
+            <div class="col-12">
+                <div class="btn-group w-100" role="group" aria-label="Operation">
+                    <input type="radio" class="btn-check" name="operation" id="original" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="original">Original</label>
+                    <input type="radio" class="btn-check" name="operation" id="add" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="add">Add</label>
+                    <input type="radio" class="btn-check" name="operation" id="multiply" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="multiply">Multiply</label>
+                    <input type="radio" class="btn-check" name="operation" id="timeShift" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="timeShift">Phase Shift</label>
+                    <input type="radio" class="btn-check" name="operation" id="timeScale" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="timeScale">Time Scale</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row animate__animated animate__fadeInRight">
+            <div class="col-md-6">
+                <canvas id="originalSignalsChart"></canvas>
+                <div class="mt-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="showSignal1" checked>
+                        <label class="form-check-label" for="showSignal1">Show Signal 1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="showSignal2" checked>
+                        <label class="form-check-label" for="showSignal2">Show Signal 2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <canvas id="resultChart"></canvas>
+                <div class="mt-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="signalSelect" id="selectSignal1" checked>
+                        <label class="form-check-label" for="selectSignal1">Apply to Signal 1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="signalSelect" id="selectSignal2">
+                        <label class="form-check-label" for="selectSignal2">Apply to Signal 2</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 animate__animated animate__fadeInUp">
+            <div class="col-md-12">
+                <div class="slider-container">
+                    <label for="amplitudeSlider">Amplitude: <span id="amplitudeValue">1</span></label>
+                    <input type="range" min="0.1" max="2" step="0.1" value="1" class="slider" id="amplitudeSlider">
+                </div>
+                <div class="slider-container">
+                    <label for="frequencySlider">Frequency: <span id="frequencyValue">1</span></label>
+                    <input type="range" min="0.1" max="2" step="0.1" value="1" class="slider" id="frequencySlider">
+                </div>
+                <div class="slider-container">
+                    <label for="phaseSlider">Phase: <span id="phaseValue">0</span></label>
+                    <input type="range" min="-3.14159" max="3.14159" step="0.1" value="0" class="slider" id="phaseSlider">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
